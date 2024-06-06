@@ -1,0 +1,95 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+ class MyFrame extends JFrame implements ActionListener
+{
+JLabel lb1,lb2;         // class for add Lable 
+JTextField txt1,txt2,txt3;
+JButton btn1,btn2;
+
+MyFrame()            // constructor for add component
+{
+setLayout(null);        // class to add Layout 
+Font F = new Font("Times New Roman",Font.BOLD,20); // for Font size and style9
+lb1 = new JLabel("First Number  ");
+lb1.setBounds(20,20,150,30);
+lb1.setFont(F);
+lb1.setForeground(Color.BLUE);       // change color of Text  
+add(lb1);
+txt1= new JTextField();
+txt1.setFont(F);
+txt1.setBounds(150,20,150,30);
+txt1.setForeground(Color.RED);
+add(txt1);
+
+lb2 = new JLabel("Second Number  ");
+lb2.setBounds(20,100,150,30);
+lb2.setFont(F);
+lb2.setForeground(Color.BLUE);       add(lb2);
+txt2= new JTextField();
+txt2.setFont(F);
+
+txt2.setBounds(170,100,150,30);
+txt2.setForeground(Color.RED);
+add(txt2);
+
+txt3 = new JTextField();
+txt3.setBounds(370,100,150,30);
+txt3.setFont(F);
+txt3.setForeground(Color.RED);       
+add(txt3);
+txt3.setEditable(false);
+
+
+btn1 = new JButton("Addition");
+btn1.setBounds(90,150,150,30);
+btn1.setForeground(Color.BLACK);
+btn1.setFont(F);
+btn1.addActionListener(this);
+add(btn1);
+
+
+btn2 = new JButton("Sub");
+btn2.setBounds(250,150,150,30);
+btn2.setForeground(Color.BLACK);
+btn2.setFont(F);
+btn2.addActionListener(this);
+
+add(btn2);
+
+
+
+}
+public void actionPerformed(ActionEvent ae)
+{
+int a,b,c=0;
+a = Integer.parseInt(txt1.getText());
+b = Integer.parseInt(txt2.getText());
+
+if(ae.getSource()==btn1)
+c= a+b;
+//txt1.setBackground(Color.RED);
+
+if(ae.getSource()== btn2)
+c= a-b;
+//txt1.setBackground(Color.GREEN);
+
+txt3.setText(Integer.toString(c));
+
+
+}
+
+}
+ class TestSwing
+{
+public static void main (String args[])
+{
+MyFrame m = new MyFrame();
+m.setTitle("Addition & Substration");
+m.setSize(800,500);
+m.setVisible(true); 
+m.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);       // close instance of class
+
+}
+
+}
